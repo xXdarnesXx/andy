@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen Slider</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FDFBE7;
+        }
+
+        .container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .image {
+            width: 100%;
+            display: none;
+        }
+
+        .image.active {
+            display: block;
+        }
+
+        .button {
+            position: absolute;
+            bottom: 20px;
+            right: 10%; /* Ajusta para que coincida con la flecha */
+            width: 100px; /* Hazlo lo suficientemente grande */
+            height: 100px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="c1.png" alt="Imagen 1" class="image active">
+        <img src="c2.png" alt="Imagen 2" class="image">
+        <img src="c3.png" alt="Imagen 3" class="image">
+        <img src="c4.png" alt="Imagen 2" class="image">
+        <img src="c5.png" alt="Imagen 3" class="image">
+        <img src="c6.png" alt="Imagen 2" class="image">
+        <img src="c7.png" alt="Imagen 3" class="image">
+        <img src="c8.png" alt="Imagen 2" class="image">
+        <img src="c9.png" alt="Imagen 3" class="image">
+        <img src="c10.png" alt="Imagen 3" class="image">
+        <img src="c11.png" alt="Imagen 3" class="image">
+        <img src="c12.png" alt="Imagen 3" class="image">
+        
+        <button class="button" onclick="nextImage()"></button>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.image');
+        let currentIndex = 0;
+
+        function nextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+    </script>
+</body>
+</html>
